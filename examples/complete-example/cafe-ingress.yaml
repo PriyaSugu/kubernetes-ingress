@@ -5,15 +5,19 @@ metadata:
 spec:
   tls:
   - hosts:
-    - cafe.example.com
+    - ec2-54-198-129-100.compute-1.amazonaws.com
     secretName: cafe-secret
   rules:
-  - host: cafe.example.com
+  - host: ec2-54-198-129-100.compute-1.amazonaws.com
     http:
       paths:
       - path: /tea
         backend:
           serviceName: tea-svc
+          servicePort: 80
+      - path: /lassi
+        backend:
+          serviceName: lassi-svc
           servicePort: 80
       - path: /coffee
         backend:
